@@ -82,6 +82,9 @@ M.gitsigns = {
 }
 
 M.ui = {
+	nvdash = {
+		load_on_startup = true
+	},
 	tabufline = {
 		lazyload = false,
 		overriden_modules = nil,

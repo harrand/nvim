@@ -41,14 +41,14 @@ let $PROJ = "C:/Projects"
 let $GLOBCFG = $LOCALAPPDATA .. "\\nvim"
 let $CFG = $GLOBCFG .. "\\lua\\custom"
 cd $PROJ
-
-vsplit
-split
-winc w
-split
-winc k
-term
 ]])
+
+local function open_nvim_tree(data)
+	require("nvim-tree.api").tree.open()
+end
+
+vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
+
 
 local enable_providers = {
 	"python3_provider",
@@ -59,5 +59,3 @@ for _, plugin in pairs(enable_providers) do
 	vim.g["loaded_" .. plugin] = nil
 	vim.cmd("runtime " .. plugin)
 end
-
-vim.g.python3_host_prog = "/bin/python3"
