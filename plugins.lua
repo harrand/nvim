@@ -4,15 +4,6 @@ return {
 
 	{
 		"neovim/nvim-lspconfig",
-		dependencies = {
-			-- format & linting
-			{
-				"jose-elias-alvarez/null-ls.nvim",
-				config = function()
-					require("custom.configs.lsp.null-ls")
-				end,
-			},
-		},
 		config = function()
 			require("plugins.configs.lspconfig")
 			require("custom.configs.lsp")
@@ -38,19 +29,6 @@ return {
 	{
 		"nvim-telescope/telescope.nvim",
 		opts = overrides.telescope,
-	},
-
-	-- add telescope-fzf-native
-	{
-		"telescope.nvim",
-		dependencies = {
-			"nvim-telescope/telescope-fzf-native.nvim",
-			build = "make",
-			lazy = false,
-			config = function()
-				require("telescope").load_extension("fzf")
-			end,
-		},
 	},
 
 	{
