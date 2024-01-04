@@ -41,6 +41,12 @@ let $PROJ = "C:/Projects"
 let $GLOBCFG = $LOCALAPPDATA .. "\\nvim"
 let $CFG = $GLOBCFG .. "\\lua\\custom"
 cd $PROJ
+
+set tabstop=4
+set shiftwidth=4
+set cindent
+filetype plugin indent on
+
 ]])
 
 local function open_nvim_tree(data)

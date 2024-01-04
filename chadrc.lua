@@ -5,13 +5,6 @@ local M = {}
 local highlights = require("custom.highlights")
 local overrides = require("custom.configs.overrides")
 
-M.ui = {
-	theme = "doomchad",
-	theme_toggle = { "doomchad", "one_light" },
-	hl_override = highlights.override,
-	hl_add = highlights.add,
-}
-
 M.plugins = "custom.plugins"
 
 M.ui = overrides.ui
