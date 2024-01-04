@@ -105,7 +105,7 @@ M.cmp = {
 			})[entry.source.name]
 			return vim_item
 		end,
-	},
+	}
 }
 
 M.telescope = {
