@@ -29,6 +29,7 @@ M.nvim_dap = {
 		["<leader>dk"] = { "<cmd>lua require'dap'.step_out()<CR>", "debugger step out" },
 		["<leader>d<space>"] = { "<cmd>lua require'dap'.continue()<CR>", "debugger continue" },
 		["<leader>dbp"] = { "<cmd>lua require'dap'.toggle_breakpoint()<CR>", "debugger toggle breakpoint" },
+		["<leader>dbc"] = { "<cmd>lua require'dap'.clear_breakpoints()<CR>", "debugger clear breakpoints" },
 		["<leader>dd"] = {
 			"<cmd>lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>",
 			"debugger set conditional breakpoint",
