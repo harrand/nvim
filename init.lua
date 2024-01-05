@@ -55,7 +55,6 @@ end
 
 vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
 
-
 local enable_providers = {
 	"python3_provider",
 	-- and so on
