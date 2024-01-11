@@ -18,16 +18,37 @@ dap.adapters.lldb = {
   name = 'lldb'
 }
 
+-- cache data for re-running last program
+dap.cache = {}
+dap.cache.last_program = nil
+dap.cache.last_cwd = nil
+
 dap.configurations.cpp = {
   {
     name = "Manual Launch",
     type = "lldb",
     request = "launch",
     program = function()
-      return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+		local prog = vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+		dap.cache.last_program = prog
+		return prog
     end,
     cwd = function()
-      return vim.fn.input('Working Directory: ', vim.fn.getcwd() .. '/', 'file')
+		local cwd = vim.fn.input('Working Directory: ', vim.fn.getcwd() .. '/', 'file')
+		dap.cache.last_cwd = cwd
+		return cwd
+    end,
+    stopAtEntry = true,
+  },
+  {
+    name = "Last Program",
+    type = "lldb",
+    request = "launch",
+    program = function()
+		return dap.cache.last_program
+    end,
+    cwd = function()
+		return dap.cache.last_cwd
     end,
     stopAtEntry = true,
   },
